@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    background: #263238;
+    color: #fff;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-heading h2{
+   margin-bottom: 16px;
+   margin-top: 7rem;
+}
+
+.main-heading p{
+    margin-top: 0;
+    font-size: 21px;
+    margin-bottom: 2rem;
+}
+
+.time-length{
+    flex-direction: column !important;
+}
+
+.time-length .time-length-text{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0 17px;
+}
+
+.timer-display-row{
+    margin-bottom: 0 !important;
+    margin-top: 5rem;
+}
+
+.timer-display{
+    height: 234px;
+    background: #26a69a;
+    margin-left: 0 !important;
+    color: #fff;
+    font-weight: 600;
+}
+
+.timer-display h1{
+    margin: 0 !important;
+}
+
+.timer-controls{
+    padding: 10px 0 !important;
+    border: 3px solid #26a69a;
+    margin-left: 0 !important;
+    gap: 1rem;
+}

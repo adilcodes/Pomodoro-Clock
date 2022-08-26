@@ -43,13 +43,16 @@ function App() {
 
         <div className="row timer-display-row flex">
           <div className="col s9 timer-display flex">
-            <h1>25:00</h1>
+            <div>
+              <h5 className="center-align">Break</h5>
+              <h1 className="center-align">25:00</h1>
+            </div>
           </div>
         </div>
 
         <div className="row flex">
           <div className="col s9 timer-controls flex">
-            <a type="button" className="waves-effect waves-light btn btn-floating orange accent-3">
+            <a type="button" className="waves-effect waves-light btn btn-floating orange accent-3 pulse">
               <i class="material-icons">play_arrow</i>
             </a>
             <a type="button" className="waves-effect waves-light btn btn-floating red lighten-1">

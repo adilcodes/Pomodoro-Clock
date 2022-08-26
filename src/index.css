@@ -42,12 +42,14 @@ body{
     height: 234px;
     background: #26a69a;
     margin-left: 0 !important;
-    color: #fff;
-    font-weight: 600;
 }
 
 .timer-display h1{
     margin: 0 !important;
+}
+
+.timer-display h5{
+    margin-top: 0 !important;
 }
 
 .timer-controls{

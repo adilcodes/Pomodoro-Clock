@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import TimerLength from "./components/TimerLength";
+import TimerDisplay from "./components/TimerDisplay";
+import TimerControls from "./components/TimerControls";
 
 function App() {
 
@@ -96,96 +100,41 @@ function App() {
       <div className="container">
 
         <div className="row">
-          <div className="col s12 main-heading">
-            <h2 className="center-align">Pomodoro Clock</h2>
-            <p className="center-align">Also known as 25 + 5 Clock</p>
-          </div>
+          <Header heading = "Pomodoro Clock" subHeading = "Also known as 25 + 5 Clock" />
         </div>
 
         <div className="row">
-          <div className="col s12 m6 l6 time-length flex">
-            <h4 id="break-label">Break Length</h4>
-            <div className="controls flex">
-              <a 
-                disabled={timer}
-                type="button"
-                id="break-decrement"
-                className="waves-effect waves-light btn"
-                onClick={() => {changePeriod("break", "decrement")}}
-              >
-                <i className="material-icons">arrow_downward</i>
-              </a>
-              <span className="time-length-text" id="break-length">{breakTime}</span>
-              <a 
-                disabled={timer}
-                type="button"
-                id="break-increment"
-                className="waves-effect waves-light btn"
-                onClick={() => {changePeriod("break", "increment")}}
-              >
-                <i className="material-icons">arrow_upward</i>
-              </a>
-            </div>
-          </div>
+          <TimerLength
+            title = "Break Length"
+            btnDisabledStatus = {timer}
+            clickHandler = {changePeriod}
+            type = "break"
+            periodTime = {breakTime}
+          />
 
-          <div className="col s12 m6 l6 time-length flex">
-            <h4 id="session-label">Session Length</h4>
-            <div className="controls flex">
-              <a 
-                disabled={timer}
-                type="button"
-                id="session-decrement"
-                className="waves-effect waves-light btn"
-                onClick={() => {changePeriod("session", "decrement")}}
-              >
-                <i className="material-icons">arrow_downward</i>
-              </a>
-              <span className="time-length-text" id="session-length">{sessionTime}</span>
-              <a 
-                disabled={timer}
-                type="button"
-                id="session-increment"
-                className="waves-effect waves-light btn"
-                onClick={() => {changePeriod("session", "increment")}}
-              >
-                <i className="material-icons">arrow_upward</i>
-              </a>
-            </div>
-          </div>
-
+          <TimerLength
+            title = "Session Length"
+            btnDisabledStatus = {timer}
+            clickHandler = {changePeriod}
+            type = "session"
+            periodTime = {sessionTime}
+          />
         </div>
 
         <div className="row timer-display-row flex">
-          <div className="col s9 timer-display flex">
-            <div>
-              <h5 id="timer-label" className="center-align">{breakStatus ? "Break" : "Session"}</h5>
-              <h1
-                id="time-left"
-                className={`center-align ${displayTime <= 60 ? "red-text text-darken-4" : ""}`}
-              >{formatTime(displayTime)}</h1>
-            </div>
-          </div>
+          <TimerDisplay
+            breakStatus = {breakStatus}
+            timeInSec = {displayTime} 
+            formattedTime = {formatTime(displayTime)} 
+          />
         </div>
 
         <div className="row flex">
-          <div className="col s9 timer-controls flex">
-            <a 
-              id="start_stop"
-              type="button"
-              className={`waves-effect waves-light btn btn-floating orange accent-3 ${!timer ? "pulse" : ""}`}
-              onClick = {playStopTimer}
-            >
-              <i className="material-icons">{!timer ? "play_arrow" : "pause"}</i>
-            </a>
-            <a 
-              id="reset"
-              type="button"
-              className="waves-effect waves-light btn btn-floating red lighten-1"
-              onClick={resetTimer}
-            >
-              <i className="material-icons">replay</i>
-            </a>
-          </div>
+          <TimerControls 
+            timer = {timer}
+            playStopHandler = {playStopTimer}
+            resetClickHandler = {resetTimer}
+          />
         </div>
 
         <audio 
@@ -193,6 +142,7 @@ function App() {
           preload="auto"
           src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
         ></audio>
+
       </div>
     </>
   );
